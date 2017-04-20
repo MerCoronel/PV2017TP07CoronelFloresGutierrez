@@ -40,8 +40,8 @@
             <h:form id="frmRectangulo">
                 <h:panelGrid id="tblRectangulo" columns="4">
                     <p:outputLabel id="lblA1" value="Punto A ("/>
-                    <p:inputText id="txtA1x" value="#{rectanguloFormBean.unRectangulo.a.x}" size="3" /> 
-                    <p:inputText id="txtA1y" value="#{rectanguloFormBean.unRectangulo.a.y}" size="3"/>
+                    <p:inputText id="txtA1x" value="#{rectanguloFormBean.x1}" size="3" /> 
+                    <p:inputText id="txtA1y" value="#{rectanguloFormBean.y1}" size="3"/>
                     <p:outputLabel id="lblA2" value=")"/>
                 </h:panelGrid>
 
@@ -52,29 +52,35 @@
                     <p:outputLabel id="lblBase" value="Base: "/>
                     <p:inputText id="txtBase" value="#{rectanguloFormBean.base}" size="3"/>
                     
-                    <p:commandButton id="btnCalcular" value="Calcular" 
-                                     update="btnCalcular"
-                                     action="#{rectanguloFormBean.calcularOtrosPuntos()}">
-                    </p:commandButton>
+                        <p:commandButton id="btnCalcular" value="Calcular" 
+                                     action="#{rectanguloFormBean.calcularOtrosPuntos()}" update="txtB txtB1 txtC1 txtC2 txtD2 txtD3 lblPuntoP2 lblPuntoS2">
+                    </p:commandButton>                  
+
                 </h:panelGrid>
-                
+              
                 <h:panelGrid id="tblPuntos" columns="4">
+                    
                  <p:outputLabel id="lblB1" value="Punto B ("/>
-                 <p:outputLabel id="txtB" value="#{rectanguloFormBean.unRectangulo.b.x} " /> 
-                    <p:outputLabel id="txtB1" value="#{rectanguloFormBean.unRectangulo.b.y}"/>
+                 <p:outputLabel id="txtB" value="#{rectanguloFormBean.obtenerPuntoBX()}" /> 
+                    <p:outputLabel id="txtB1" value="#{rectanguloFormBean.obtenerPuntoBY()}"/>
                     <p:outputLabel id="lblB2" value=")"/>
                     
                      <p:outputLabel id="lblPuntoC" value="Punto C ("/>
-                    <p:outputLabel id="txtC1" value="#{rectanguloFormBean.unRectangulo.c.x}"/> 
-                    <p:outputLabel id="txtC2" value="#{rectanguloFormBean.unRectangulo.c.y}"/>
+                    <p:outputLabel id="txtC1" value="#{rectanguloFormBean.obtenerPuntoCX()}"/> 
+                    <p:outputLabel id="txtC2" value="#{rectanguloFormBean.obtenerPuntoCY()}"/>
                     <p:outputLabel id="lblC" value=")"/>
                     
                      <p:outputLabel id="lblPuntoD" value="Punto D ("/>
-                     <p:outputLabel id="txtD2" value="#{rectanguloFormBean.unRectangulo.d.x}"/> 
-                     <p:outputLabel id="txtD3" value="#{rectanguloFormBean.unRectangulo.d.y}"/>
+                     <p:outputLabel id="txtD2" value="#{rectanguloFormBean.obtenerPuntoDX()}"/> 
+                     <p:outputLabel id="txtD3" value="#{rectanguloFormBean.obtenerPuntoDY()}"/>
                     <p:outputLabel id="lblD4" value=")"/>
+                   <p:outputLabel id="lblPuntoPer" value="Perímetro"/>
+                   <p:outputLabel id="lblPuntoP2" value="#{rectanguloFormBean.obtenerPer()}"/>
+                    <p:outputLabel id="lblPuntoSup" value="Superficie"/>
+                   <p:outputLabel id="lblPuntoS2" value="#{rectanguloFormBean.obtenerSup()}"/>
+
                    
-                 
+                    
                     
                 </h:panelGrid>
    

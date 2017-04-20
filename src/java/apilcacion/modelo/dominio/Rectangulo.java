@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Rectangulo {
     private double altura;
     private double base;
-    private Punto A, B, C, D;
+    private Punto A = new Punto(), B = new Punto(), C = new Punto(), D = new Punto();
     
     public Rectangulo() {
     }
@@ -25,27 +25,44 @@ public class Rectangulo {
         this.C = C;
         this.D = D;
     }
+
     
-    
- public ArrayList<Punto> EncontrarNuevoPunto(Punto a, double base, double altura){
-     setA(a);
-     setBase(base);
-     setAltura(altura);
-     ArrayList<Punto> puntos = new ArrayList();
-     setB( new Punto
-     (getA().getX()+getBase(),getA().getY()));
-     setC( new Punto
-     (getA().getX()+getBase(),getA().getY()+getAltura()));
-     setD( new Punto
-     (getA().getX(),getA().getY()+getAltura()));
-     
-     puntos.add(A);
-     puntos.add(B);
-     puntos.add(C);
-     puntos.add(D);
-     
-     return(puntos);
- }
+    public void crearPuntoS(double x, double y, double h, double bas)
+    {   
+        A.setX(x);
+        A.setY(y);
+        B.setX(x+bas);
+        B.setY(y);
+        C.setX(x+bas);
+        C.setY(x+h);
+        D.setX(x);
+        D.setY(x+h);
+    }
+
+    public double obtenerPuntoBX()
+    {
+        return B.getX();
+    }
+    public double obtenerPuntoBY()
+    {
+        return B.getY();
+    }
+    public double obtenerPuntoCX()
+    {
+        return C.getX();
+    }
+    public double obtenerPuntoCY()
+    {
+        return C.getY();
+    }
+    public double obtenerPuntoDX()
+    {
+        return D.getX();
+    }
+    public double obtenerPuntoDY()
+    {
+        return D.getY();
+    }
     /**
      * @return the altura
      */

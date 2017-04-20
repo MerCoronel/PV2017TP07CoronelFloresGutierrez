@@ -9,35 +9,64 @@ import apilcacion.modelo.dominio.Punto;
 import apilcacion.modelo.dominio.Rectangulo;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author merco_000
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class RectanguloFormBean {
     private double x1;
     private double y1;
     private double base;
     private double altura;
     private ArrayList<Punto> puntoEncontrados;
-    private Rectangulo unRectangulo;
+    private Rectangulo unRectangulo = new Rectangulo();
+   // private Rectangulo rectangulo = new Rectangulo();
     /**
      * Creates a new instance of RectanguloFormBean
      */
     public RectanguloFormBean() {
     }
    public void calcularOtrosPuntos(){
-       Punto a = new Punto(getX1(),getY1());
-       Rectangulo rectangulo = new Rectangulo();
-       setPuntoEncontrados(rectangulo.EncontrarNuevoPunto(a, getBase(), getAltura()));
-       unRectangulo= new Rectangulo
-      (puntoEncontrados.get(0), puntoEncontrados.get(1),puntoEncontrados.get(2), puntoEncontrados.get(3));
-       
-   }
 
+       unRectangulo.crearPuntoS(x1, y1, altura, base);
+
+   }
+    public double obtenerPer()
+    {
+        return (base*2+altura*2);
+    }
+    public double obtenerSup()
+    {
+        return (base*altura);
+    }
+    public double obtenerPuntoBX()
+    {
+        return unRectangulo.obtenerPuntoBX();
+    }
+    public double obtenerPuntoBY()
+    {
+        return unRectangulo.obtenerPuntoBY();
+    }
+    public double obtenerPuntoCX()
+    {
+        return unRectangulo.obtenerPuntoCX();
+    }
+    public double obtenerPuntoCY()
+    {
+        return unRectangulo.obtenerPuntoCY();
+    }
+    public double obtenerPuntoDX()
+    {
+        return unRectangulo.obtenerPuntoDX();
+    }
+    public double obtenerPuntoDY()
+    {
+        return unRectangulo.obtenerPuntoDY();
+    }
     /**
      * @return the x1
      */
@@ -111,14 +140,4 @@ public class RectanguloFormBean {
     /**
      * @return the unRectangulo
      */
-    public Rectangulo getUnRectangulo() {
-        return unRectangulo;
-    }
-
-    /**
-     * @param unRectangulo the unRectangulo to set
-     */
-    public void setUnRectangulo(Rectangulo unRectangulo) {
-        this.unRectangulo = unRectangulo;
-    }
 }
